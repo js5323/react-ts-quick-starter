@@ -49,7 +49,7 @@ const cssLoaders = ['style-loader', cssLoaderConfig, postCssLoaderConfig];
 
 module.exports = {
   entry: {
-    app: resolve(PROJECT_PATH, './src/app.js'),
+    app: resolve(PROJECT_PATH, './src/index.tsx'),
   },
   output: {
     filename: `js/[name]${isDev ? '' : '.[hash:8]'}.js`,
@@ -65,6 +65,13 @@ module.exports = {
   ],
   module: {
     rules: [
+      {
+        test: /\.(tsx?|js)$/,
+        loader: 'babel-loader',
+        options: { cacheDirectory: true },
+        exclude: /node_modules/,
+      },
+
       {
         test: /\.css$/,
         use: cssLoaders,
@@ -122,5 +129,11 @@ module.exports = {
         ],
       },
     ],
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js', '.json'],
+    alias: {
+      '@': resolve(PROJECT_PATH, './src'),
+    },
   },
 };
