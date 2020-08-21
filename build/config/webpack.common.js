@@ -2,6 +2,7 @@ const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const WebpackBar = require('webpackbar');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const { PROJECT_PATH, isDev } = require('../constant');
 
 const htmlPluginMinifyConfig = {
@@ -78,6 +79,11 @@ module.exports = {
       name: isDev ? 'Starting...' : 'Packaging...',
       color: '#fa8c16',
     }),
+    new ForkTsCheckerWebpackPlugin({
+      typescript: {
+        configFile: resolve(PROJECT_PATH, './tsconfig.json'),
+      },
+    }),
   ],
   module: {
     rules: [
@@ -147,7 +153,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js', '.json'],
+    extensions: ['.tsx', '.ts', '.js', '.json', '.less'],
     alias: {
       '@': resolve(PROJECT_PATH, './src'),
     },

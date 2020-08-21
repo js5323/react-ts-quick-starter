@@ -51,6 +51,7 @@
     "eslint-plugin-react-hooks": "^4.1.0",
     "eslint-plugin-unicorn": "^21.0.0",
     "file-loader": "^6.0.0",
+    "fork-ts-checker-webpack-plugin": "^5.1.0",
     "html-webpack-plugin": "^4.3.0",
     "husky": "^4.2.5",
     "less": "^3.12.2",
