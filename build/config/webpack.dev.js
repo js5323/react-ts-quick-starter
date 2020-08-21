@@ -1,5 +1,6 @@
 const { merge } = require('webpack-merge');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
+const webpack = require('webpack');
 const common = require('./webpack.common.js');
 const { SERVER_HOST, SERVER_PORT } = require('../constant.js');
 
@@ -15,5 +16,5 @@ module.exports = merge(common, {
     open: true, // 打开默认浏览器
     hot: true, // 热更新
   },
-  plugins: [new HardSourceWebpackPlugin()],
+  plugins: [new HardSourceWebpackPlugin(), new webpack.HotModuleReplacementPlugin()],
 });

@@ -158,4 +158,14 @@ module.exports = {
       '@': resolve(PROJECT_PATH, './src'),
     },
   },
+  // externals: {
+  //   react: 'React',
+  //   'react-dom': 'ReactDOM',
+  // },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      name: true,
+    },
+  },
 };
