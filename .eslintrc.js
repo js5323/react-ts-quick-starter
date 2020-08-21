@@ -1,6 +1,6 @@
-const OFF = 0
-const WARN = 1
-const ERROR = 2
+const OFF = 0;
+const WARN = 1;
+const ERROR = 2;
 
 module.exports = {
   env: {
@@ -99,7 +99,7 @@ module.exports = {
     indent: [ERROR, 2, { SwitchCase: 1 }],
     'linebreak-style': [ERROR, 'unix'],
     quotes: [ERROR, 'single'],
-    semi: [ERROR, 'never'],
+    // semi: [ERROR, 'never'],
     'no-unused-expressions': WARN,
     'no-plusplus': OFF,
     'no-console': OFF,
@@ -107,4 +107,4 @@ module.exports = {
     'jsx-quotes': [ERROR, 'prefer-single'],
     'global-require': OFF,
   },
-}
+};
