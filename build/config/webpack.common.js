@@ -1,6 +1,7 @@
 const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const WebpackBar = require('webpackbar');
 const { PROJECT_PATH, isDev } = require('../constant');
 
 const htmlPluginMinifyConfig = {
@@ -72,6 +73,10 @@ module.exports = {
           toType: 'dir',
         },
       ],
+    }),
+    new WebpackBar({
+      name: isDev ? 'Starting...' : 'Packaging...',
+      color: '#fa8c16',
     }),
   ],
   module: {
