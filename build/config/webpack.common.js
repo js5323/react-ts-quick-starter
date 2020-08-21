@@ -3,6 +3,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const WebpackBar = require('webpackbar');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const { PROJECT_PATH, isDev } = require('../constant');
 
 const htmlPluginMinifyConfig = {
@@ -48,7 +51,7 @@ const cssLoaderConfig = {
   },
 };
 
-const cssLoaders = ['style-loader', cssLoaderConfig, postCssLoaderConfig];
+const cssLoaders = [isDev ? 'style-loader' : MiniCssExtractPlugin.loader, cssLoaderConfig, postCssLoaderConfig];
 
 module.exports = {
   entry: {
@@ -163,6 +166,17 @@ module.exports = {
   //   'react-dom': 'ReactDOM',
   // },
   optimization: {
+    minimize: !isDev,
+    minimizer: [
+      !isDev &&
+        new TerserPlugin({
+          extractComments: false,
+          terserOptions: {
+            compress: { pure_funcs: ['console.log'] },
+          },
+        }),
+      !isDev && new OptimizeCssAssetsPlugin(),
+    ].filter(Boolean),
     splitChunks: {
       chunks: 'all',
       name: true,
