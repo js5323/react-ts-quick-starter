@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack-dev-server --config ./build/config/webpack.dev.js",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config ./build/config/webpack.dev.js",
     "build": "cross-env NODE_ENV=production webpack --config ./build/config/webpack.prod.js",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "lint": "npm run lint-eslint && npm run lint-stylelint",
@@ -52,6 +52,7 @@
     "eslint-plugin-unicorn": "^21.0.0",
     "file-loader": "^6.0.0",
     "fork-ts-checker-webpack-plugin": "^5.1.0",
+    "hard-source-webpack-plugin": "^0.13.1",
     "html-webpack-plugin": "^4.3.0",
     "husky": "^4.2.5",
     "less": "^3.12.2",
