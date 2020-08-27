@@ -7,6 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const { PROJECT_PATH, isDev } = require('../constant');
+const themeConfig = require('../themeConfig');
 
 const htmlPluginMinifyConfig = {
   removeAttributeQuotes: true,
@@ -110,6 +111,10 @@ module.exports = {
             loader: 'less-loader',
             options: {
               sourceMap: isDev,
+              lessOptions: {
+                modifyVars: themeConfig,
+                javascriptEnabled: true,
+              },
             },
           },
         ],

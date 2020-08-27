@@ -1,12 +1,12 @@
-import React from 'react';
-import './app.less';
+import React, { FC } from 'react';
+import { Button } from 'antd';
+import './App.less';
 
-function App() {
-  return (
-    <div className='app'>
-      <span>Hello!</span>
-    </div>
-  );
-}
+const App: FC = () => (
+  <div className='app'>
+    <span>Hello!</span>
+    <Button type='primary'>Button</Button>
+  </div>
+);
 
 export default App;
