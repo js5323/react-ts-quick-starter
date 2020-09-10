@@ -1,12 +1,13 @@
 import React, { FC } from 'react';
 import { Button } from 'antd';
-import './App.less';
+import './app.less';
+import MainLayout from './layouts/MainLayout';
 
 const App: FC = () => (
-  <div className='app'>
+  <MainLayout>
     <span>Hello!</span>
     <Button type='primary'>Button</Button>
-  </div>
+  </MainLayout>
 );
 
 export default App;
