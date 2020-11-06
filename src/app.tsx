@@ -1,13 +1,15 @@
 import React, { FC } from 'react';
-import { Button } from 'antd';
+import { HashRouter } from 'react-router-dom';
 import './app.less';
 import MainLayout from './layouts/MainLayout';
+import RouterIndex from './router';
 
 const App: FC = () => (
-  <MainLayout>
-    <span>Hello!</span>
-    <Button type='primary'>Button</Button>
-  </MainLayout>
+  <HashRouter>
+    <MainLayout>
+      <RouterIndex />
+    </MainLayout>
+  </HashRouter>
 );
 
 export default App;
