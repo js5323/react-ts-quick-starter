@@ -58,7 +58,7 @@ module.exports = {
     app: resolve(PROJECT_PATH, './src/index.tsx'),
   },
   output: {
-    filename: `js/[name]${isDev ? '' : '.[hash:8]'}.js`,
+    filename: `js/[name].js?v=${isDev ? '' : '[hash:8]'}`,
     path: resolve(PROJECT_PATH, './dist'),
   },
   plugins: [
@@ -135,7 +135,7 @@ module.exports = {
             loader: 'url-loader',
             options: {
               limit: 10 * 1024,
-              name: '[name].[contenthash:8].[ext]',
+              name: '[name].[ext]?v=[contenthash:8]',
               outputPath: 'images',
             },
           },
@@ -147,7 +147,7 @@ module.exports = {
           {
             loader: 'url-loader',
             options: {
-              name: '[name].[contenthash:8].[ext]',
+              name: '[name].[ext]?v=[contenthash:8]',
               outputPath: 'fonts',
             },
           },
